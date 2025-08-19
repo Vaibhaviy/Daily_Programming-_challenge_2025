@@ -1,0 +1,38 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+vector<int> leader(vector<int> &Arr){
+    int n=Arr.size();
+    if(n==1){
+        return Arr;}
+        
+    int leader=Arr[n-1];    
+    vector<int>ans;
+    ans.push_back(leader);
+
+    
+    for(int i=n-2;i>=0;i--){
+       if(Arr[i]>leader){
+         ans.push_back(Arr[i]);  
+         leader=Arr[i];
+       } 
+     }
+    reverse(ans.begin(),ans.end());
+    
+   return ans; 
+    
+    
+}
+
+int main(){
+   vector<int>Arr={16, 17, 4, 3, 5, 2}; 
+    vector<int>Ans=leader(Arr);
+    for(int val:Ans){
+        cout<<val<<" ";
+    }
+    
+    
+    
+    return 0;}

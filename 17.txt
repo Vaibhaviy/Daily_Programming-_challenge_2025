@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+vector<int> primeFactorization(long long N) {
+    vector<int> factors;
+    while (N % 2 == 0) {
+        factors.push_back(2);
+        N /= 2;
+    }
+    for (long long i = 3; i * i <= N; i += 2) {
+        while (N % i == 0) {
+            factors.push_back((int)i);
+            N /= i;
+}
+    }
+    if (N > 1) {
+        factors.push_back((int)N);
+    }
+        return factors;
+}
+int main() {
+    long long n=19;
+    vector<int> factors=primeFactorization(n);
+    for(int a:factors){
+        cout<<a<<",";
+    }
+   
+return 0;
+}

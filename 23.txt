@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include<cmath>
+#include<climits>
+using namespace std;
+
+vector<int> slidingWindowMaximum(vector<int>& arr,int k)
+{  vector<int> ans;
+
+int n=arr.size();
+int i=0;
+int Max=INT_MIN;
+while(i<=n-k){
+for(int j=i;j<i+k;j++){
+  Max=max(Max,arr[j]);
+}
+ans.push_back(Max);
+Max=INT_MIN;
+i++;
+}
+
+return ans;
+}
+
+
+int main() {
+    vector<int> arr = {7,7,7,7};
+    int k = 3;
+ vector<int>ans=slidingWindowMaximum(arr,k);
+ 
+cout<<"Output"<<endl;
+for(int var: ans){
+    cout<<var<<",";
+}
+
+return 0;
+}
